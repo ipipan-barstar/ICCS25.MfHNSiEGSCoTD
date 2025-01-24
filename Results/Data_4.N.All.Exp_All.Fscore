@@ -1,0 +1,90 @@
+CountVectorizer                 zero negative                                0.086976                 
+CountVectorizer                 s + 0                                        0.086343                 
+CountVectorizer                 s + 1                                        0.096597                 
+CountVectorizer                 s + 2                                        0.100980                 
+CountVectorizer                 s + 3                                        0.096961                 
+CountVectorizer                 (s + 0)/(1 + 0)                              0.087287                 
+CountVectorizer                 (s + 1)/(1 + 1)                              0.100755                 
+CountVectorizer                 (s + 2)/(1 + 2)                              0.098013                 
+CountVectorizer                 (s + 3)/(1 + 3)                              0.097359                 
+CountVectorizer                 cos((π/2)*arccos(s)/maxarccos(S))            0.085889                 
+CountVectorizer                 cos(arccos(s)/(1+0))                         0.086422                 
+CountVectorizer                 cos(arccos(s)/(1+1))                         0.097314                 
+CountVectorizer                 cos(arccos(s)/(1+2))                         0.101451                 
+CountVectorizer                 cos(arccos(s)/(1+3))                         0.097657                 
+CountVectorizer                 exp(-(1-(s+0))/2)                            0.097105                 
+CountVectorizer                 exp(-(1-(s+1))/2)                            0.094990                 
+CountVectorizer                 exp(-(1-(s+2))/2)                            0.098405                 
+CountVectorizer                 exp(-(1-(s+3))/2)                            0.101049                 
+TfVectorizer                    zero negative                                0.082289                 
+TfVectorizer                    s + 0                                        0.087385                 
+TfVectorizer                    s + 1                                        0.098816                 
+TfVectorizer                    s + 2                                        0.099631                 
+TfVectorizer                    s + 3                                        0.098190                 
+TfVectorizer                    (s + 0)/(1 + 0)                              0.086977                 
+TfVectorizer                    (s + 1)/(1 + 1)                              0.096730                 
+TfVectorizer                    (s + 2)/(1 + 2)                              0.100532                 
+TfVectorizer                    (s + 3)/(1 + 3)                              0.098935                 
+TfVectorizer                    cos((π/2)*arccos(s)/maxarccos(S))            0.085694                 
+TfVectorizer                    cos(arccos(s)/(1+0))                         0.086280                 
+TfVectorizer                    cos(arccos(s)/(1+1))                         0.095104                 
+TfVectorizer                    cos(arccos(s)/(1+2))                         0.098884                 
+TfVectorizer                    cos(arccos(s)/(1+3))                         0.097921                 
+TfVectorizer                    exp(-(1-(s+0))/2)                            0.098976                 
+TfVectorizer                    exp(-(1-(s+1))/2)                            0.098710                 
+TfVectorizer                    exp(-(1-(s+2))/2)                            0.097576                 
+TfVectorizer                    exp(-(1-(s+3))/2)                            0.100686                 
+TfidfVectorizer                 zero negative                                0.058584                 
+TfidfVectorizer                 s + 0                                        0.078126                 
+TfidfVectorizer                 s + 1                                        0.091667                 
+TfidfVectorizer                 s + 2                                        0.101480                 
+TfidfVectorizer                 s + 3                                        0.083715                 
+TfidfVectorizer                 (s + 0)/(1 + 0)                              0.086218                 
+TfidfVectorizer                 (s + 1)/(1 + 1)                              0.091669                 
+TfidfVectorizer                 (s + 2)/(1 + 2)                              0.086025                 
+TfidfVectorizer                 (s + 3)/(1 + 3)                              0.097220                 
+TfidfVectorizer                 cos((π/2)*arccos(s)/maxarccos(S))            0.075403                 
+TfidfVectorizer                 cos(arccos(s)/(1+0))                         0.082500                 
+TfidfVectorizer                 cos(arccos(s)/(1+1))                         0.101539                 
+TfidfVectorizer                 cos(arccos(s)/(1+2))                         0.112782                 
+TfidfVectorizer                 cos(arccos(s)/(1+3))                         0.109860                 
+TfidfVectorizer                 exp(-(1-(s+0))/2)                            0.093116                 
+TfidfVectorizer                 exp(-(1-(s+1))/2)                            0.099880                 
+TfidfVectorizer                 exp(-(1-(s+2))/2)                            0.092518                 
+TfidfVectorizer                 exp(-(1-(s+3))/2)                            0.104063                 
+GloVe@wiki.100                  zero negative                                0.075822                 
+GloVe@wiki.100                  s + 0                                        failed
+GloVe@wiki.100                  s + 1                                        0.097897                 
+GloVe@wiki.100                  s + 2                                        0.097250                 
+GloVe@wiki.100                  s + 3                                        0.085043                 
+GloVe@wiki.100                  (s + 0)/(1 + 0)                              failed
+GloVe@wiki.100                  (s + 1)/(1 + 1)                              0.098196                 
+GloVe@wiki.100                  (s + 2)/(1 + 2)                              0.089288                 
+GloVe@wiki.100                  (s + 3)/(1 + 3)                              0.088997                 
+GloVe@wiki.100                  cos((π/2)*arccos(s)/maxarccos(S))            0.086432                 
+GloVe@wiki.100                  cos(arccos(s)/(1+0))                         failed
+GloVe@wiki.100                  cos(arccos(s)/(1+1))                         0.090436                 
+GloVe@wiki.100                  cos(arccos(s)/(1+2))                         0.098317                 
+GloVe@wiki.100                  cos(arccos(s)/(1+3))                         0.105700                 
+GloVe@wiki.100                  exp(-(1-(s+0))/2)                            0.090728                 
+GloVe@wiki.100                  exp(-(1-(s+1))/2)                            0.099268                 
+GloVe@wiki.100                  exp(-(1-(s+2))/2)                            0.091305                 
+GloVe@wiki.100                  exp(-(1-(s+3))/2)                            0.101781                 
+GloVe@twitter.100               zero negative                                0.086917                 
+GloVe@twitter.100               s + 0                                        0.091102                 
+GloVe@twitter.100               s + 1                                        0.104715                 
+GloVe@twitter.100               s + 2                                        0.098987                 
+GloVe@twitter.100               s + 3                                        0.093034                 
+GloVe@twitter.100               (s + 0)/(1 + 0)                              0.087718                 
+GloVe@twitter.100               (s + 1)/(1 + 1)                              0.094625                 
+GloVe@twitter.100               (s + 2)/(1 + 2)                              0.099611                 
+GloVe@twitter.100               (s + 3)/(1 + 3)                              0.084016                 
+GloVe@twitter.100               cos((π/2)*arccos(s)/maxarccos(S))            0.092564                 
+GloVe@twitter.100               cos(arccos(s)/(1+0))                         0.086849                 
+GloVe@twitter.100               cos(arccos(s)/(1+1))                         0.094604                 
+GloVe@twitter.100               cos(arccos(s)/(1+2))                         0.093025                 
+GloVe@twitter.100               cos(arccos(s)/(1+3))                         0.092916                 
+GloVe@twitter.100               exp(-(1-(s+0))/2)                            0.097117                 
+GloVe@twitter.100               exp(-(1-(s+1))/2)                            0.092980                 
+GloVe@twitter.100               exp(-(1-(s+2))/2)                            0.095643                 
+GloVe@twitter.100               exp(-(1-(s+3))/2)                            0.092298                 
