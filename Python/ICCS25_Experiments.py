@@ -10,11 +10,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 from print_matrix import select_best_f, fb_score, print_clustering
 from data import load_data, mktagmap, input_embedding
 
-eid = int(sys.argv[1]) if len(sys.argv) > 1 else 0
-rpt = int(sys.argv[2]) if len(sys.argv) > 2 else 1
-exp = sys.argv[3].split("-") if len(sys.argv) > 3 and sys.argv[3] != "-" else []  # experiment codes d[.d] (with d = 0..5), optionally separated by '-'
+eid = int(sys.argv[1]) if len(sys.argv) > 1 else 0                                # vectorizer id = 0..4, see vectorizers in data.py
+rpt = int(sys.argv[2]) if len(sys.argv) > 2 else 1                                # number of repetitions
+exp = sys.argv[3].split("-") if len(sys.argv) > 3 and sys.argv[3] != "-" else []  # experiment code d = 0..5, or list of, separated by '-', see experiments dict
 lap = sys.argv[4][0] if len(sys.argv) > 4 else 'N'                                # N = normalized, C = combinatorial laplacian
-ifn = sys.argv[5] if len(sys.argv) > 5 else "../Data/Data_0"
+ifn = sys.argv[5] if len(sys.argv) > 5 else "../Data/Data_0"                      # input data
 
 print("Dataset: %s" % os.path.basename(ifn))
 
@@ -88,9 +88,8 @@ exp_names = list(experiments.keys())
 exp_funcs = list(experiments.values())
 exp_list = []
 for exp_code in exp_codes:
-    ec_pair = exp_code.split(".")
-    ex_id = int(ec_pair[0])
-    ex_C = int(ec_pair[1]) if len(ec_pair) > 1 else 4
+    ex_id = int(exp_code)
+    ex_C = 4
     exp_n = exp_names[ex_id]
     exp_f = exp_funcs[ex_id]
     fsignature = inspect.signature(exp_f)
