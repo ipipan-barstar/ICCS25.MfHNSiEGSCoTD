@@ -11,7 +11,7 @@ from print_matrix import select_best_f, fb_score, print_clustering
 from data import load_data, mktagmap, input_embedding
 
 eid = int(sys.argv[1]) if len(sys.argv) > 1 else 0                                # vectorizer id = 0..4, see vectorizers in data.py
-rpt = int(sys.argv[2]) if len(sys.argv) > 2 else 1                                # number of repetitions
+rpt = int(sys.argv[2]) if len(sys.argv) > 2 else 1                                # number of repetitions of each experiment
 exp = sys.argv[3].split("-") if len(sys.argv) > 3 and sys.argv[3] != "-" else []  # experiment code d = 0..5, or list of, separated by '-', see experiments dict
 lap = sys.argv[4][0] if len(sys.argv) > 4 else 'N'                                # N = normalized, C = combinatorial laplacian
 ifn = sys.argv[5] if len(sys.argv) > 5 else "../Data/Data_0"                      # input data
@@ -24,7 +24,7 @@ vectors, vectrstr = input_embedding(eid, input_lines)
 
 
 cosimat = cosine_similarity(vectors)
-cosimat[cosimat > 1] = 1  # Fix invalid (> 1) cosine values
+cosimat[cosimat > 1] = 1                     # Fix invalid (> 1) cosine values
 cosimat_neg_cnt = np.sum(cosimat < 0)
 deg = np.sum(cosimat, axis=1)
 cosimat_neg_deg_cnt = np.sum(deg < 0)
@@ -32,6 +32,7 @@ arccosmat = np.arccos(cosimat)
 np.fill_diagonal(arccosmat, 0)
 cosimat_arccosmax = np.max(arccosmat)
 
+# names -> functions to be applied on similarity matrix
 experiments = {
     "zero negative":                     lambda s: 0 if s < 0 else s,
     "s + %d":                            lambda s, c: s + c,
@@ -41,7 +42,7 @@ experiments = {
     "exp(-(1-(s+%d))/2)":                lambda s, c: np.exp(-(1-(s+c))/2),
 }
 
-
+# Process similarity matrix with the supplied function
 def run_exp_on_matrix(ex_name, ex_func, f_arg=None):
     matr = cosimat.copy()
     print("Processing experiment \'%s\', negative elements and rows before: (%d, %d)" % (ex_name, cosimat_neg_cnt, cosimat_neg_deg_cnt), end='')
@@ -56,7 +57,7 @@ def run_exp_on_matrix(ex_name, ex_func, f_arg=None):
     print(", after: (%d, %d)." % (neg_cnt, neg_deg_cnt))
     return matr
 
-
+# Repeat spectral clustering rpt many times
 def repeat_spectral_clustering(data, normed=True):
     reslts = []
     for r in range(rpt):
@@ -74,7 +75,7 @@ def repeat_spectral_clustering(data, normed=True):
         raise Exception("No results due to invalid matrix values")
     return reslts
 
-
+# Print summary of the reults
 def print_spectral_clustering(clus, bc, ac, wc, stdv, einfo):
     exp_info = ", \tExperiment: \'%s\', \tLaplacian: %s" % (einfo, 'Normalized' if lap == 'N' else 'Combinatorial')
     topmsg = "Affinity: precomputed, \tVectorizer: %s, \trepeat: %d%s" % (vectrstr, rpt, exp_info)
@@ -83,6 +84,9 @@ def print_spectral_clustering(clus, bc, ac, wc, stdv, einfo):
     print_clustering(tagids, clus, cluster_cnt, topmsg, botmsg, taglist)
 
 
+# Prepare list of experiments to process.
+# The list contains pairs (name, function).
+# The contents of the experiment list is determined by the argument exp which is a number o list of numbers.
 exp_codes = exp if len(exp) else [str(i) for i in range(len(experiments))]
 exp_names = list(experiments.keys())
 exp_funcs = list(experiments.values())
@@ -95,7 +99,7 @@ for exp_code in exp_codes:
     fsignature = inspect.signature(exp_f)
     if len(fsignature.parameters) == 1:
         exp_list.append((exp_n, exp_f))
-    elif len(fsignature.parameters) == 2:
+    elif len(fsignature.parameters) == 2:      # for two-argument functions, the second parameter is substituted by values 0..3 to produce 4 experiment items
         for c in range(ex_C):
             exp_name = exp_n % ((c,) * exp_n.count('%'))
             exp_list.append((exp_name, exp_f, c))
@@ -106,9 +110,13 @@ for exp_code in exp_codes:
 for ex in exp_list:
     print("=" * 127)
     try:
+        # modify similarity matrix with the function passed in ex tuple
         matrix = run_exp_on_matrix(*ex)
+        # perform spectral clustering rpt many times, return all results
         results = repeat_spectral_clustering(matrix, normed=(lap == 'N'))
+        # select the best of results, also return F-scores
         clusters, bestc, wsc, asc, stdev = select_best_f(tagids, results)
+        # print summary of the results
         print_spectral_clustering(clusters, bestc, asc, wsc, stdev, ex[0])
     except Exception as exc:
         print("Spectral clustering failed: %s" % exc)
