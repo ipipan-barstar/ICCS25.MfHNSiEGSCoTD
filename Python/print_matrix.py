@@ -2,10 +2,13 @@ import statistics
 import numpy as np
 import sklearn.metrics as sm
 
+# calculate F score
 def fb_score(lab_true, lab_pred):
     scr = sm.fbeta_score(lab_true, lab_pred, average='macro', beta=2)
     return scr
 
+# Select the best result by F score.
+# Also return the average, the worst and standard deviation of F score.
 def select_best_f(lab_true, lab_pred_list):
     best = -1.0
     worst = 1.0
@@ -25,7 +28,7 @@ def select_best_f(lab_true, lab_pred_list):
     stdev = statistics.stdev(all_scores, mean) if len(all_scores) > 1 else 0.0
     return best_cl, best, worst, mean, stdev
 
-
+# calculate error matrix
 def calc_err_matrix(lab_true, lab_pred, cluster_cnt):
     if len(lab_pred) != len(lab_true):
         print("Error: %d != %d" % (len(lab_pred), len(lab_true)))
@@ -35,7 +38,7 @@ def calc_err_matrix(lab_true, lab_pred, cluster_cnt):
         err_mat[lab_true[x]][lab_pred[x]] += 1
     return err_mat
 
-
+# rearrange matrix columns to more or less triangle form (preseriving row order) so that it is easier to read
 def rearrange_err_matr(er_mat, cluster_cnt):
     labels = list(range(cluster_cnt))
     eT = er_mat.T
@@ -49,7 +52,7 @@ def rearrange_err_matr(er_mat, cluster_cnt):
             labels[col], labels[max_row] = labels[max_row], labels[col]
     return eT.T, labels
 
-
+# print coincidence matrix with auxiliary information (header, row names, etc)
 def prt_err_matr(er_mat, column_labels, grp_cnt, taglist=None, max_tag_width=1):
     tagspace = " " * max_tag_width
     sch = "-"
@@ -82,7 +85,7 @@ def prt_err_matr(er_mat, column_labels, grp_cnt, taglist=None, max_tag_width=1):
     print("\n" + line)
     print(col_summary)
 
-
+# print error matrix together with any additional information passed as arguments
 def print_clustering(lab_true, lab_pred, cluster_cnt, topmsg="", botmsg="", taglist=None):
     sep = "-" * 66
     max_tag_width = (1 + len(max(taglist, key=len))) if taglist else 1

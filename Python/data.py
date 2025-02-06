@@ -27,7 +27,8 @@ def input_embedding(vectorizer_id, lines):
     return embedding, vectorizer_string
 
 
-# One hashtag per line
+# Read input data consisting of lines with exactly 1 hashtag.
+# Return lists of the extracted hashtags along with the input lines
 def load_data(src_file):
     with codecs.open(src_file, mode='r', encoding='utf-8') as input_file:
         input_lines = [line.rstrip() for line in input_file.readlines()]
@@ -35,6 +36,12 @@ def load_data(src_file):
         hashtags = [line.split(None)[0] for line in hash_split]
     return hashtags, input_lines
 
+# Count occurrences of hashtags.
+# Return
+#       tagmap: mapping of hashtags -> number of occurences
+#       taglist: list of hashtags sorted by number of occurrences
+#       hashids: hashtags from input document encoded as their corresponding indices in taglist
+#       cluster_cnt: number of distinct hashtags, which is 10
 # Since Python 3.7*, dictionaries are order-preserving,
 def mktagmap(hashtags):
     tagmap = {}
@@ -51,6 +58,8 @@ def mktagmap(hashtags):
         print("\t%2d: %s -> %d" % (t, taglist[t], tagmap[taglist[t]]))
     return tagmap, taglist, hashids, cluster_cnt
 
+# GloVe embedding: converts tweets to vectors
+# Returns sparse matrix
 def glove_fit_transform(input_lines, model_name):
     model_file = "../models/%s" % model_name
     embdict = {}  # words -> vectors

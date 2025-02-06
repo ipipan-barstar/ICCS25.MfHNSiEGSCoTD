@@ -18,9 +18,9 @@ ifn = sys.argv[5] if len(sys.argv) > 5 else "../Data/Data_0"                    
 
 print("Dataset: %s" % os.path.basename(ifn))
 
-hashtags, input_lines = load_data(ifn)
-tagmap, taglist, tagids, cluster_cnt = mktagmap(hashtags)
-vectors, vectrstr = input_embedding(eid, input_lines)
+hashtags, input_lines = load_data(ifn)                      # list of hashtags and list of lines, one hashtag per line
+tagmap, taglist, tagids, cluster_cnt = mktagmap(hashtags)   # mapping of hashtags to numbers of occurrences
+vectors, vectrstr = input_embedding(eid, input_lines)       # embedding and its string representation
 
 
 cosimat = cosine_similarity(vectors)
