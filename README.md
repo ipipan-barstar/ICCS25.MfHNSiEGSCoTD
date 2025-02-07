@@ -18,7 +18,7 @@ Each dataset contains 10 different hashtags.
 ## `Results`
 The results of experiments.
 Filename structure:
-- `Data_n`:  input data
+- `Data_n`:  input dataset
 - `N` or `C`: normalised or combinatorial laplacian used
 - `Exp_[0-5]|All` - experiments, i.e., functions applied to similarity matrix as listed in the `experiments` dictionary in `ICCS25_Experiments.py` 
 - `Fscore` - average Fscore values for experiments

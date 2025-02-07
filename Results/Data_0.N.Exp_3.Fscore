@@ -1,0 +1,5 @@
+CountVectorizer                 cos((π/2)*arccos(s)/maxarccos(S))            0.041465                          
+TfVectorizer                    cos((π/2)*arccos(s)/maxarccos(S))            0.040130                          
+TfidfVectorizer                 cos((π/2)*arccos(s)/maxarccos(S))            0.024470                          
+GloVe@wiki.100                  cos((π/2)*arccos(s)/maxarccos(S))            0.086862                          
+GloVe@twitter.100               cos((π/2)*arccos(s)/maxarccos(S))            0.070968                          

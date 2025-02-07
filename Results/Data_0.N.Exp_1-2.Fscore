@@ -1,0 +1,34 @@
+CountVectorizer                 s + 0                                        0.039259                          
+CountVectorizer                 s + 1                                        0.083052                          
+CountVectorizer                 s + 2                                        0.095044                          
+CountVectorizer                 s + 3                                        0.091558                          
+CountVectorizer                 (s + 1)(1 + 1)                               0.090329                          
+CountVectorizer                 (s + 2)(1 + 2)                               0.091230                          
+CountVectorizer                 (s + 3)(1 + 3)                               0.098926                          
+TfVectorizer                    s + 0                                        0.038527                          
+TfVectorizer                    s + 1                                        0.092366                          
+TfVectorizer                    s + 2                                        0.093344                          
+TfVectorizer                    s + 3                                        0.093868                          
+TfVectorizer                    (s + 1)(1 + 1)                               0.088132                          
+TfVectorizer                    (s + 2)(1 + 2)                               0.080861                          
+TfVectorizer                    (s + 3)(1 + 3)                               0.088000                          
+TfidfVectorizer                 s + 0                                        0.026265                          
+TfidfVectorizer                 s + 1                                        0.089141                          
+TfidfVectorizer                 s + 2                                        0.087319                          
+TfidfVectorizer                 s + 3                                        0.101453                          
+TfidfVectorizer                 (s + 1)(1 + 1)                               0.082153                          
+TfidfVectorizer                 (s + 2)(1 + 2)                               0.086583                          
+TfidfVectorizer                 (s + 3)(1 + 3)                               0.096070                          
+GloVe@wiki.100                  s + 1                                        0.070286                          
+GloVe@wiki.100                  s + 2                                        0.093106                          
+GloVe@wiki.100                  s + 3                                        0.088134                          
+GloVe@wiki.100                  (s + 1)(1 + 1)                               0.094275                          
+GloVe@wiki.100                  (s + 2)(1 + 2)                               0.079221                          
+GloVe@wiki.100                  (s + 3)(1 + 3)                               0.084350                          
+GloVe@twitter.100               s + 0                                        0.064776                          
+GloVe@twitter.100               s + 1                                        0.081415                          
+GloVe@twitter.100               s + 2                                        0.099145                          
+GloVe@twitter.100               s + 3                                        0.084543                          
+GloVe@twitter.100               (s + 1)(1 + 1)                               0.083325                          
+GloVe@twitter.100               (s + 2)(1 + 2)                               0.085911                          
+GloVe@twitter.100               (s + 3)(1 + 3)                               0.088406                          

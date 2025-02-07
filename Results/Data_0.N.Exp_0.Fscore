@@ -1,0 +1,5 @@
+CountVectorizer                 zero negative                                0.048625                          
+TfVectorizer                    zero negative                                0.037155                          
+TfidfVectorizer                 zero negative                                0.025551                          
+GloVe@wiki.100                  zero negative                                0.045052                          
+GloVe@twitter.100               zero negative                                0.060123                          
