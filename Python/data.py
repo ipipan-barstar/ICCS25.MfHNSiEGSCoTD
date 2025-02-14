@@ -4,9 +4,9 @@ from scipy import sparse
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 
-vectorizers = ('CountVectorizer', 'TfVectorizer', 'TfidfVectorizer', 'TweetGloVe', 'WikiGloVe')
+vectorizers = ('CountVectorizer', 'TfVectorizer', 'TfidfVectorizer', 'WikiGloVe', 'TweetGloVe')
 
-# documents -> vectors
+# Rrepresent documents as vectors
 # return sparse.csr_matrix, string
 def input_embedding(vectorizer_id, lines):
     vectorizer_string = vectorizers[vectorizer_id]
@@ -58,8 +58,8 @@ def mktagmap(hashtags):
         print("\t%2d: %s -> %d" % (t, taglist[t], tagmap[taglist[t]]))
     return tagmap, taglist, hashids, cluster_cnt
 
-# GloVe embedding: converts tweets to vectors
-# Returns sparse matrix
+# GloVe embedding: represent tweets as vectors
+# Return sparse matrix
 def glove_fit_transform(input_lines, model_name):
     model_file = "../models/%s" % model_name
     embdict = {}  # words -> vectors

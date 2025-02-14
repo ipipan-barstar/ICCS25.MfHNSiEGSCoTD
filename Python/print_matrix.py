@@ -52,7 +52,7 @@ def rearrange_err_matr(er_mat, cluster_cnt):
             labels[col], labels[max_row] = labels[max_row], labels[col]
     return eT.T, labels
 
-# print coincidence matrix with auxiliary information (header, row names, etc)
+# print error matrix with auxiliary information (header, row names, etc)
 def prt_err_matr(er_mat, column_labels, grp_cnt, taglist=None, max_tag_width=1):
     tagspace = " " * max_tag_width
     sch = "-"
