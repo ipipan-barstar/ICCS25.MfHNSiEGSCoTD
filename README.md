@@ -44,9 +44,9 @@ Start with `ICCS25_Experiments.py`.
 Arguments:
 1. digit `0-4`: vectorizer to use, as listed in `vectorizers` in `data.py` (default `0` = `CountVectorizer`).
 2. number of repetitions of each experiment (default 1).
-3. digit `0-5` or sequence of such digits, separated with `-`: experiment(s) to process as listed  in the `experiments` dictionary in `ICCS25_Experiments.py`. Single '-' denotes all experiments. Default it to do all.
+3. digit `0-5` or sequence of such digits, separated with `-`: experiment(s) to process as listed  in the `experiments` dictionary in `ICCS25_Experiments.py`. Single '-' denotes all experiments. Default is to do all.
 4. `C` or `N`: combinatorial or normalised laplacian to use. Default is 'N'.
-5. Filename. Default is `../Data/Data_0`.
+5. Input file name. Default is `../Data/Data_0`.
 
 ## `models`
 Since GloVe model files are large (almost 1GB), instead of storing them direcly we include instructions how to download them from the source.
@@ -61,6 +61,4 @@ They are available at `https://nlp.stanford.edu/projects/glove/` in `Download pr
 # Requirements
 
 1. `Python >= 3.7` for ordering of dictionary keys.
-
-[//]: # (2. ``scikit-learn <= 0.24.2``)
 
