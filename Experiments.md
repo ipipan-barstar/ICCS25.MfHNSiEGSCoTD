@@ -1,3 +1,69 @@
+
+# Experiments
+
+
+We have performed experiments on the effectivity of GSC methods predicting hashtags for a large body of tweets, 
+using various methods of handling negativity, mentioned in the formulas (13), (14), (16), (17), (19), (7) for c = 0, 1, 2, 3. 
+For the modified similarity matrices, both combinatorial and normalized Laplacians were used in GSC. 
+The computations were performed for the traditional Term Vector Space (TVS, tf, tfidf) 
+as well as for the GloVe based embeddings: 
+TweetGlove (trained on Twitter data) and WikiGlove (trained on Wikipedia Data).
+The clustering experiments were performed with popular Python libraries: numpy, scipy, scikit-learn and soyclustering 
+which is an implementation of spherical k-means. 
+In particular, we used SpectralClustering class from scikit-learn with two distinct settings of the affinity parameter: 
+precomputed (affinity from similarity matrix) as a representative of the L-embedding and L-embedding based clustering.
+
+## Data Set Description
+
+For the initial experiment we used a set named en.Size=150.TagCap=300.SEL.10tags, 
+consisting of random tweets published on Twitter (now X) between 2019 and 2023, 
+with a length of more than 150 characters each, 
+which are a collection of tweets related to the hashtags listed in Table 1.
+
+Table 2 characterizes the dataset en.Size=150.TagCap=300.SEL.10tags 
+with respect to the two GloVe-based embeddings for the five considered samples. 
+Obviously, the Term Vector Space embeddings have no negative similarity problems, so they were not included. 
+TweetWiki embedding leads to numerous negative similarity matrix entries, 
+but no problem with row sums occurs for our samples. 
+The most difficult problems occur for the WikiGloVe embedding, 
+as there are many more negative similarities and there are multiple rows with negative entries in three of the samples.
+
+## Results
+
+Subsequent tables present clustering results for the Sample 0. 
+Results for other samples can be accessed in the folder `Results`.
+
+Let us first consider normalized Laplacians.
+Table 3 presents clustering results when the correction of negative similarities is based on zeroing them.
+Normalized Laplacian based clustering could be executed. 
+We see that modern (GloVe based) do not have a big advantage over traditional (TVS based) embeddings. 
+The results are the worst compared to other methods.
+
+Table 4, formula (13), presents clustering results when the correction of negative similarities is based on adding a constant to all off-diagonal similarities. 
+Normalized Laplacian-based clustering could be executed except for `c = 0` in WikiGlove embedding because the diagonal of D contained negative entries. 
+We see that modern (GloVe based) does not have any real advantage over traditional (TVS based) embeddings. 
+At the same time, we see that adding the constant `c = 1` significantly improves the performance, while higher constants do not contribute much to the results.
+
+Table 4, formula (14) presents clustering results when the correction of negative similarities is based on adding a constant to all off-diagonal similarities and dividing for normalization. 
+As expected, no improvement over Table 4 (13) is visible.
+
+Table 5 (Normalized) presents the results when normalizing over the largest angle between document vectors. 
+The results are worse for TVS embeddings, and slightly worse for GloVe embeddings.
+
+Table 6 (formula 17) presents the results when dividing the angle between document vectors. 
+The results constitute an improvement when dividing by at least two, but dividing by higher values does not contribute anything.
+
+Table 6 (formula 19) presents the results when replacing primary similarities with their exponential variants. 
+The variants do not differ much, but replacement of negative similarities with exponential ones helps the GloVe based embeddings,
+and also the TVS embeddings benefit from this transformation.
+
+As visible in the Tables 3, 5, the results for combinatorial Laplacians are significantly worse, 
+and the effects of transformations are generally marginal, as expected.
+
+Conclusions: removal of negative similarities allows to compute or improve clustering results for GloVe embeddings
+whereby setting negatives to zero is the worst method. 
+The transformations studied are also helpful for TVS based clustrings, whereby the reason for this effect needs to be studied deeper.
+
 # Tables
 
 ## Table 1
