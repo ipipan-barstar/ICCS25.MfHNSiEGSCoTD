@@ -56,7 +56,9 @@ Two models are used:
 
 They are available at `https://nlp.stanford.edu/projects/glove/` in `Download pre-trained word vectors` section.
 
+# Experiments
 
+[Click to read more about experiments and results](Experiments.md)
 
 # Requirements
 
