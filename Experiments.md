@@ -169,7 +169,7 @@ in each sample.
   
 ## Table 3
 
-Clustering results for the dataset en.Size=150.TagCap=300.SEL.10tags Sample 0 after similarity correction (setting negative `s_{ik}` to zero)  - F-score, averaged over 30 runs when Normalized  and Combinatorial Laplacian based GSC was applied.
+Clustering results for the dataset en.Size=150.TagCap=300.SEL.10tags Sample 0 after similarity correction (setting negative <code>s<sub>ij</sub></code> to zero)  - F-score, averaged over 30 runs when Normalized  and Combinatorial Laplacian based GSC was applied.
 
 ### Normalized Laplacian
 
@@ -273,7 +273,7 @@ Rows marked with `N/A' refer to executions failed  due to negative values of sim
 
 
 Clustering results of the dataset en.Size=150.TagCap=300.SEL.10tags, Sample 0 
-after similarity correction using formula (16)  (transformation `s_{ik} = cos((π/2)\arccos(s_{ik}) / max arccos(s_{ik})))`).
+after similarity correction using formula (16)  (transformation <code>s<sub>ik</sub></code> = cos((π/2)\arccos(s<sub>ik</sub>) / max arccos(s<sub>ik</sub>)))</code>).
 F-score, averaged over 30 runs was applied.
 
 ### Normalized Laplacian 
@@ -301,7 +301,7 @@ F-score, averaged over 30 runs was applied.
 ### Using formula (17)
  Clustering results of the dataset en.Size=150.TagCap=300.SEL.10tags, 
  Sample 0 after similarity correction using formula (17) 
- (transformation `s_{ik} = cos(arccos s_{ik}/(1+c))`).
+ (transformation <code>s<sub>ik</sub> = cos(arccos s<sub>ik</sub>/(1+c))</code>).
  F-score, averaged over 30 runs.
 Rows marked with `N/A' refer to executions failed  due to negative values of similarities.
 
@@ -340,7 +340,7 @@ Rows marked with `N/A' refer to executions failed  due to negative values of sim
 
 Clustering results of the dataset en.Size=150.TagCap=300.SEL.10tags, Sample 0 
 after similarity correction using formula (19)
-(transformation `s_{ik} = exp(-(1-(s_{ik}+c))/2)`).
+(transformation <code>s<sub>ik</sub> = exp(-(1-(s<sub>ik</sub>+c))/2)</code>).
 F-score, averaged over 30 runs when normalized Laplacian based GSC was applied.
 
 | Embedding type  | `c` | avg. F-score | SD of  F-score | 
